@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: reactapplatest 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactapplatest
+  template:
+    metadata:
+      labels:
+        app: reactapplatest 
+    spec:
+      containers:
+        - name: reactapplatest 
+          image: acrcwr.azurecr.io/reactapplatest
+          ports:
+          - containerPort: 80
