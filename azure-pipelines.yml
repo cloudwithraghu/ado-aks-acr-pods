@@ -10,12 +10,11 @@ jobs:
 
   - checkout: self
 
-  - Task: Docker@2
+  - task: Docker@2
     displayName: 'Build and Push Docker image'
     inputs:
+      containerRegistry: 'dh-con' # You may need to set up a DockerHub service connection in your Azure DevOps project
+      repository: 'cloudwithraghu/react-html-app'
       command: 'buildAndPush'
       Dockerfile: 'Dockerfile'
-      repository: 'cloudwithraghu/react-html-app'
-      containerRegistry: 'gh-con' 
       tags: 'latest'
-  
