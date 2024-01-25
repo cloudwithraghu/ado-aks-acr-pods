@@ -1,0 +1,22 @@
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: BuildAndPushDockerImage
+  displayName: 'Build and Push Docker Image'
+  steps:
+
+  - checkout: self
+
+
+  - Task: Docker@2
+    displayName: 'Build and Push Docker image'
+    inputs:
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
+    repository: 'cloudwithraghu/react-html-app'
+    containerRegistry: 'gh-con' 
+    tags: 'latest'
+  
